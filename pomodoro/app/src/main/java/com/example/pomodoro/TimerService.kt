@@ -44,6 +44,7 @@ class TimerService : Service() {
         const val ACTION_PAUSE = "com.example.pomodoro.PAUSE"
         const val ACTION_RESET = "com.example.pomodoro.RESET"
         const val ACTION_SKIP = "com.example.pomodoro.SKIP"
+        const val ACTION_SYNC = "com.example.pomodoro.SYNC"
 
         private val _state = MutableStateFlow(TimerUiState())
         val state: StateFlow<TimerUiState> = _state.asStateFlow()
@@ -79,6 +80,7 @@ class TimerService : Service() {
     private var lastShownSecond: Long = -1L
 
     private var wakeLock: PowerManager.WakeLock? = null
+    private val noise = WhiteNoisePlayer()
     private lateinit var stats: PomodoroStats
     private lateinit var settings: PomodoroSettings
 
@@ -107,6 +109,7 @@ class TimerService : Service() {
             ACTION_PAUSE -> pauseTimer()
             ACTION_RESET -> resetTimer()
             ACTION_SKIP -> advanceToNext(alert = false, autoStart = _state.value.running)
+            ACTION_SYNC -> { noise.stop(); updateNoise() }
         }
         return START_STICKY
     }
@@ -119,6 +122,7 @@ class TimerService : Service() {
         startForeground(NOTIF_ID, buildNotification(_state.value))
         acquireWake()
         startTicking()
+        updateNoise()
     }
 
     private fun pauseTimer() {
@@ -127,6 +131,7 @@ class TimerService : Service() {
         val remaining = (endAt - SystemClock.elapsedRealtime()).coerceAtLeast(0)
         _state.value = _state.value.copy(running = false, remainingMillis = remaining)
         releaseWake()
+        updateNoise()
         updateNotification()
     }
 
@@ -135,6 +140,7 @@ class TimerService : Service() {
         endAt = 0L
         lastShownSecond = -1L
         releaseWake()
+        noise.stop()
         val dur = settings.durationMillis(Phase.FOCUS)
         // Keep today's total; reset the current timer and the in-cycle counter.
         _state.value = TimerUiState(
@@ -179,6 +185,7 @@ class TimerService : Service() {
             releaseWake()
             updateNotification()
         }
+        updateNoise()
     }
 
     private fun startTicking() {
@@ -277,9 +284,18 @@ class TimerService : Service() {
             .notify(NOTIF_ID, buildNotification(_state.value))
     }
 
+    private fun updateNoise() {
+        if (_state.value.running && settings.whiteNoiseEnabled) {
+            noise.start(settings.noiseType == 1)
+        } else {
+            noise.stop()
+        }
+    }
+
     override fun onDestroy() {
         tickJob?.cancel()
         releaseWake()
+        noise.stop()
         scope.cancel()
         super.onDestroy()
     }

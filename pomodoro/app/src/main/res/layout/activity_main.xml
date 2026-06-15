@@ -32,6 +32,19 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <ImageButton
+        android:id="@+id/btnNoise"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="4dp"
+        android:background="?attr/selectableItemBackgroundBorderless"
+        android:contentDescription="@string/cd_noise"
+        android:padding="10dp"
+        android:src="@drawable/ic_noise_off"
+        app:layout_constraintEnd_toStartOf="@id/btnHistory"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <TextView
         android:id="@+id/tvPhase"
         android:layout_width="wrap_content"

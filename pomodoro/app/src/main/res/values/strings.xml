@@ -31,4 +31,18 @@
     <string name="settings_cycle">几个专注后进入长休息</string>
     <string name="settings_save">保存</string>
     <string name="settings_saved">已保存</string>
+
+    <string name="settings_theme">主题</string>
+    <string name="theme_system">跟随系统</string>
+    <string name="theme_light">浅色</string>
+    <string name="theme_dark">深色</string>
+    <string name="settings_noise">白噪音类型</string>
+    <string name="noise_white">白噪音</string>
+    <string name="noise_brown">棕噪音</string>
+    <string name="cd_noise">白噪音开关</string>
+
+    <string name="history_export">导出</string>
+    <string name="export_done">已导出 CSV</string>
+    <string name="export_fail">导出失败</string>
+    <string name="csv_header">日期,完成数</string>
 </resources>

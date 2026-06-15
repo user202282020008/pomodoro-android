@@ -1,5 +1,6 @@
 package com.example.pomodoro
 
+import android.animation.ValueAnimator
 import android.content.Context
 import android.graphics.Canvas
 import android.graphics.Color
@@ -18,6 +19,8 @@ class WeeklyChartView @JvmOverloads constructor(
 ) : View(context, attrs, defStyleAttr) {
 
     private var data: List<Pair<String, Int>> = emptyList()
+    private var anim = 1f
+    private var animator: ValueAnimator? = null
 
     private val linePaint = Paint(Paint.ANTI_ALIAS_FLAG).apply {
         color = Color.WHITE
@@ -52,7 +55,13 @@ class WeeklyChartView @JvmOverloads constructor(
 
     fun setData(values: List<Pair<String, Int>>) {
         data = values
-        invalidate()
+        animator?.cancel()
+        anim = 0f
+        animator = ValueAnimator.ofFloat(0f, 1f).apply {
+            duration = 650
+            addUpdateListener { anim = it.animatedValue as Float; invalidate() }
+            start()
+        }
     }
 
     override fun onDraw(canvas: Canvas) {
@@ -75,7 +84,7 @@ class WeeklyChartView @JvmOverloads constructor(
 
         val points = data.mapIndexed { i, (_, v) ->
             val x = leftPad + stepX * i
-            val y = baseY - (v.toFloat() / maxVal) * chartH
+            val y = baseY - (v.toFloat() / maxVal) * chartH * anim
             x to y
         }
 
@@ -93,6 +102,7 @@ class WeeklyChartView @JvmOverloads constructor(
         }
         canvas.drawPath(line, linePaint)
 
+        valuePaint.alpha = (255 * anim).toInt().coerceIn(0, 255)
         data.forEachIndexed { i, (label, v) ->
             val (x, y) = points[i]
             canvas.drawCircle(x, y, dp(3f), dotPaint)

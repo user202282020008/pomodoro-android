@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Darker, deeper gradients for dark mode. -->
+    <color name="focus_grad_top">#7E2E20</color>
+    <color name="focus_grad_bottom">#3C130B</color>
+    <color name="short_grad_top">#225C53</color>
+    <color name="short_grad_bottom">#0F312B</color>
+    <color name="long_grad_top">#234E6E</color>
+    <color name="long_grad_bottom">#0E2A41</color>
+</resources>

@@ -5,4 +5,12 @@
     <color name="short_break">#3FA796</color>
     <color name="long_break">#2E6F9E</color>
     <color name="ic_launcher_bg">#E0573A</color>
+
+    <!-- Phase gradient endpoints (overridden in values-night for dark mode). -->
+    <color name="focus_grad_top">#E0573A</color>
+    <color name="focus_grad_bottom">#B8341F</color>
+    <color name="short_grad_top">#3FA796</color>
+    <color name="short_grad_bottom">#247065</color>
+    <color name="long_grad_top">#2E6F9E</color>
+    <color name="long_grad_bottom">#1B4A73</color>
 </resources>
