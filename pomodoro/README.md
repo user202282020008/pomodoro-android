@@ -1,5 +1,7 @@
 # 番茄钟 (Pomodoro Timer)
 
+[![Android CI](https://github.com/user202282020008/pomodoro-android/actions/workflows/android.yml/badge.svg)](https://github.com/user202282020008/pomodoro-android/actions/workflows/android.yml)
+
 一个标准番茄工作法计时器，原生 Android (Kotlin)。支持自定义时长、历史记录与周趋势折线图、前台后台持续计时。
 
 ## 功能
