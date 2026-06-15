@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">番茄钟</string>
+
+    <string name="phase_focus">专注</string>
+    <string name="phase_short_break">短休息</string>
+    <string name="phase_long_break">长休息</string>
+
+    <string name="action_start">开始</string>
+    <string name="action_pause">暂停</string>
+    <string name="action_reset">重置</string>
+    <string name="action_skip">跳过</string>
+
+    <string name="channel_name">番茄钟计时</string>
+    <string name="cycle_format">本轮 %1$d/%2$d　·　今日完成 %3$d</string>
+    <string name="notif_cycle">本轮番茄 %1$d/%2$d</string>
+
+    <string name="action_history">记录</string>
+    <string name="action_back">返回</string>
+    <string name="history_title">番茄记录</string>
+    <string name="history_total">累计完成 %1$d 个番茄</string>
+    <string name="history_count">🍅 × %1$d</string>
+    <string name="history_empty">暂无记录，完成一个专注后这里就有啦</string>
+
+    <string name="cd_settings">设置</string>
+    <string name="cd_history">记录</string>
+    <string name="settings_title">设置</string>
+    <string name="settings_focus">专注时长（分钟）</string>
+    <string name="settings_short">短休息时长（分钟）</string>
+    <string name="settings_long">长休息时长（分钟）</string>
+    <string name="settings_cycle">几个专注后进入长休息</string>
+    <string name="settings_save">保存</string>
+    <string name="settings_saved">已保存</string>
+</resources>

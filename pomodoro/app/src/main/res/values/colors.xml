@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="white">#FFFFFFFF</color>
+    <color name="focus">#E0573A</color>
+    <color name="short_break">#3FA796</color>
+    <color name="long_break">#2E6F9E</color>
+    <color name="ic_launcher_bg">#E0573A</color>
+</resources>

@@ -1,12 +1,12 @@
 # Android / Gradle
 *.iml
 .gradle/
-/local.properties
-/.idea/
+local.properties
+.idea/
 .DS_Store
-/build/
+build/
 **/build/
-/captures/
+captures/
 .externalNativeBuild/
 .cxx/
 *.apk
@@ -15,9 +15,10 @@
 *.dex
 *.class
 
-# Keystore (do not commit signing keys)
+# Keystore / signing secrets (never commit)
 *.jks
 *.keystore
+keystore.properties
 
 # Local toolchain (installed outside the repo, but ignore if copied in)
-/.tools/
+.tools/

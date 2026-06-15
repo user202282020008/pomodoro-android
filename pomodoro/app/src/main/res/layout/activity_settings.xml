@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg_focus"
+    android:fillViewport="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="20dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnBack"
+                style="@style/Widget.Material3.Button.TextButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/action_back"
+                android:textColor="@color/white" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/settings_title"
+                android:textColor="@color/white"
+                android:textSize="22sp"
+                android:textStyle="bold" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:background="@drawable/card_white"
+            android:orientation="vertical"
+            android:padding="20dp">
+
+            <TextView style="@style/SettingsLabel" android:text="@string/settings_focus" />
+
+            <EditText
+                android:id="@+id/etFocus"
+                style="@style/SettingsInput"
+                android:importantForAutofill="no"
+                android:inputType="number" />
+
+            <TextView style="@style/SettingsLabel" android:text="@string/settings_short" />
+
+            <EditText
+                android:id="@+id/etShort"
+                style="@style/SettingsInput"
+                android:importantForAutofill="no"
+                android:inputType="number" />
+
+            <TextView style="@style/SettingsLabel" android:text="@string/settings_long" />
+
+            <EditText
+                android:id="@+id/etLong"
+                style="@style/SettingsInput"
+                android:importantForAutofill="no"
+                android:inputType="number" />
+
+            <TextView style="@style/SettingsLabel" android:text="@string/settings_cycle" />
+
+            <EditText
+                android:id="@+id/etCycle"
+                style="@style/SettingsInput"
+                android:importantForAutofill="no"
+                android:inputType="number" />
+        </LinearLayout>
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnSave"
+            android:layout_width="match_parent"
+            android:layout_height="54dp"
+            android:layout_marginTop="20dp"
+            android:text="@string/settings_save"
+            android:textColor="@color/focus"
+            android:textSize="17sp"
+            android:textStyle="bold"
+            app:backgroundTint="@color/white"
+            app:cornerRadius="27dp" />
+    </LinearLayout>
+</ScrollView>
